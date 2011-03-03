@@ -9,60 +9,65 @@ describe "A command of 'bonfire new'" do
     @thor = Thor.new
   end
 
-  describe "with a name" do
-    before :each do
-      Dir.chdir @tmp_dir do
-        @thor.invoke Bonfire, "new", "my_book"
+  shared_examples_for "generates a book project" do
+
+    it "should make a parent directory for the project" do
+      Dir.chdir "#{@tmp_dir}" do
+        File.directory?("#{@book_name}").should be_true
       end
     end
 
-    describe "should make a project directory and it" do
-
-      it "should make a parent directory" do
-        Dir.chdir "#{@tmp_dir}" do
-          File.directory?('my_book').should be_true
-        end
-      end
+    describe "and inside it" do
 
       it "should make a directory for the source" do
-        Dir.chdir "#{@tmp_dir}/my_book" do
+        Dir.chdir "#{@tmp_dir}/#{@book_name}" do
           File.directory?('source').should be_true
         end
       end
 
       it "should make a top-level YAML file for meta-data" do
-        Dir.chdir "#{@tmp_dir}/my_book/source" do
-          File.exist?('my_book.yml').should be_true
+        Dir.chdir "#{@tmp_dir}/#{@book_name}/source" do
+          File.exist?("#{@book_name}.yml").should be_true
         end
       end
 
+      it "should make a directory for the book sections" do
+        Dir.chdir "#{@tmp_dir}/#{@book_name}/source" do
+          File.directory?('sections').should be_true
+        end
+      end
 
-      it "should make a directory for the "
-
-
-
+      describe "and inside it" do
+        it "should place a sample chapter file" do
+          Dir.chdir "#{@tmp_dir}/#{@book_name}/source/sections" do
+            File.exist?('sample_chapter.md').should be_true
+          end
+        end
+      end
     end
-
-
-
-
   end
 
-#describe "without a name" do
-#  before(:each) do
-#
-#  end
-#
-#end
-#
-## shared example group
-#it "should layout the correct directory structure"
-#
-#it "should add a "
-#
-#it "should add an .rvmrc"
-#
-#it "should init a git repo"
 
+  describe "with a name" do
+    before :each do
+      Dir.chdir @tmp_dir do
+        @book_name = "my_book"
+        @thor.invoke Bonfire, "new", @book_name
+      end
+    end
 
+    it_should_behave_like "generates a book project"
+  end
+
+  describe "without a name" do
+    before :each do
+      Dir.chdir @tmp_dir do
+        @book_name = "bonfire_book"
+        @thor.invoke Bonfire, "new"
+      end
+    end
+
+    it_should_behave_like "generates a book project"
+
+  end
 end
