@@ -1,4 +1,5 @@
 class Bonfire < Thor
+
   attr_reader :book_name
 
   desc "new BOOK_NAME", "Make a project directory for BOOK_NAME"

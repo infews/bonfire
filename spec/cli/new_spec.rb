@@ -1,12 +1,14 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe "A command of 'bonfire new'" do
-  before(:each) do
-    @tmp_dir = "#{Dir.tmpdir}/bonfire"
-    FileUtils.rm_r @tmp_dir if File.exists?(@tmp_dir)
-    FileUtils.mkdir_p @tmp_dir
+  before :each do
+    @tmp_dir = make_tmp_dir
 
     @thor = Thor.new
+  end
+
+  after :each do
+    remove_dir @tmp_dir
   end
 
   shared_examples_for "generates a book project" do
@@ -26,9 +28,14 @@ describe "A command of 'bonfire new'" do
       end
 
       it "should make a top-level YAML file for meta-data" do
-        Dir.chdir "#{@tmp_dir}/#{@book_name}/source" do
-          File.exist?("#{@book_name}.yml").should be_true
+        Dir.chdir "#{@tmp_dir}/#{@book_name}" do
+          File.exist?("bonfire.yml").should be_true
         end
+      end
+
+      it "should have the project name in the yaml file" do
+        yaml = YAML.load(File.open("#{@tmp_dir}/#{@book_name}/bonfire.yml"))
+        yaml["book_name"].should == @book_name
       end
 
       it "should make a directory for the book sections" do
@@ -52,7 +59,9 @@ describe "A command of 'bonfire new'" do
     before :each do
       Dir.chdir @tmp_dir do
         @book_name = "my_book"
-        @thor.invoke Bonfire, "new", @book_name
+        capture_output do
+          @thor.invoke(Bonfire, "new", @book_name)
+        end
       end
     end
 
@@ -63,7 +72,9 @@ describe "A command of 'bonfire new'" do
     before :each do
       Dir.chdir @tmp_dir do
         @book_name = "bonfire_book"
-        @thor.invoke Bonfire, "new"
+        capture_output do
+          @thor.invoke Bonfire, "new"
+        end
       end
     end
 

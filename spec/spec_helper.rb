@@ -12,14 +12,22 @@ require 'pp'
 require 'nokogiri'
 require 'tmpdir'
 
-RSpec.configure do |config|
+def capture_output
+  output  = StringIO.new
+  $stdout = output
+  yield
+  output.string
+ensure
+  $stdout = STDOUT
 end
 
-def capture_output
-   output = StringIO.new
-   $stdout = output
-   yield
-   output.string
- ensure
-   $stdout = STDOUT
+def make_tmp_dir
+  tmp_dir = "#{Dir.tmpdir}/bonfire-spec-dir"
+  remove_dir tmp_dir
+  FileUtils.mkdir_p tmp_dir
+  tmp_dir
+end
+
+def remove_dir(dir)
+  FileUtils.rm_r dir if File.exists?(dir)
 end

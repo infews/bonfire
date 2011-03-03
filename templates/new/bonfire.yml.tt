@@ -1,0 +1,23 @@
+# BOOK NAME
+# =========
+#
+# This is the name of the book. It needs to be a valid file name, so no special characters
+book_name: <%= book_name %>
+
+# SECTIONS
+# ========
+#
+# This is a list of files that will be included in the book.
+# By default, files in the sections/ folder will be included in alphabetical order. Use this section to override
+# and include in an arbitrary order. The '.md' extension will be added to each filename.
+#
+# Example
+# -------
+# sections:
+#   - foreward
+#   - fishing_trip
+#   - dinner_afterwards
+#   - the_next_day
+#   - about_the_author
+
+sections:
