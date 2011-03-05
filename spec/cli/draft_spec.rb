@@ -46,14 +46,7 @@ describe "A call to 'bonfire draft'" do
   end
 
   it "should copy the css directory contents" do
-    source_css_files = Dir.chdir "#{@book_dir}/source/css/" do
-      Dir.glob("**/*")
-    end
-    draft_css_files  = Dir.chdir "#{@book_dir}/output/draft/css/" do
-      Dir.glob("**/*")
-    end
-
-    draft_css_files.should == source_css_files
+    all_files_in("#{@book_dir}/source/css/").should == all_files_in("#{@book_dir}/output/draft/css/")
   end
 
   it "should build a single HTML file" do

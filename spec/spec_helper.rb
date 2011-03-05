@@ -1,11 +1,10 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+require 'rubygems'
 
 require 'thor'
 require 'bonfire'
 
-require 'rubygems'
-require 'thor'
 
 require 'rspec'
 require 'pp'
@@ -30,4 +29,9 @@ end
 
 def remove_dir(dir)
   FileUtils.rm_r dir if File.exists?(dir)
+end
+
+
+def all_files_in(dir)
+  Dir.chdir(dir) { Dir.glob("**/*") }
 end
