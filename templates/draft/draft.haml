@@ -3,5 +3,6 @@
   %head
     / This is a draft ebook file made with Bonfire (http://infews.github.com/bonfire)
     %title= title
-      %link{ :type => 'text/css', :rel => 'stylesheet', :href => '../css/draft.css'}
+    - css_files.each do |css|
+      %link{:type => 'text/css', :rel => 'stylesheet', :href => css }
   %body= body

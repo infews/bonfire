@@ -1,5 +1,5 @@
 require 'thor'
-
+require 'tilt'
 
 class Bonfire < Thor
   include Thor::Actions
@@ -18,3 +18,4 @@ end
 Dir["#{File.dirname(__FILE__)}/bonfire/**/*.rb"].each do |file|
   require file
 end
+

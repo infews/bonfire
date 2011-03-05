@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'tilt'
+require 'rdiscount'
 require 'yaml'
 
 class Bonfire < Thor
@@ -7,28 +8,36 @@ class Bonfire < Thor
   desc "draft", "Makes a single HTML file of sections in the correct order"
 
   def draft
-    # load YAML
+    Dir.chdir(Dir.pwd) do
+      bonfire = YAML.load(File.open('bonfire.yml')) || {}
 
-    bonfire_yaml = YAML.load(File.open(File.join(Dir.pwd, 'bonfire.yml'))) || {}
+      directory File.join(Dir.pwd, 'source/css'), 'output/draft/css'
+      directory File.join(Dir.pwd, 'source/images'), 'output/draft/images'
 
-    book_name = bonfire_yaml["book_name"]
+      book_name = bonfire['book_name']
+      sections  = bonfire['sections'].collect do |section|
+        section = "#{section}.md" #unless section.match(/\.md$/)
+        Tilt.new("source/sections/#{section}").render
+      end
+      css_files = Dir.chdir(File.join(Dir.pwd, 'source')) { Dir.glob('css/**/*.css') }
 
-    FileUtils.mkdir_p('output/draft')
-    Dir.chdir('output/draft') do
-      `touch #{book_name}_draft.html`
+      scope     = Scope.build(:title     => book_name,
+                              :css_files => css_files,
+                              :body      => sections.join("\n\n<hr/>\n\n"))
+      template  = load_template("draft/draft.haml")
+
+      FileUtils.mkdir_p('output/draft')
+      create_file "output/draft/#{book_name}_draft.html" do
+        template.render(scope)
+      end
     end
+  end
 
-
-#    template = Tilt::Template.new('templates/draft.haml')
-#
-#    FileUtils.mkdir_p('output/draft')
-#    Dir.chdir('output/draft') do
-#      draft = File.new("#{book_name}_draft.html", 'w+')
-#
-#      draft << template.render(sections.join("\n\n<hr/>\n\n"))
-#    end
-
-
+  no_tasks do
+    def load_template(filename)
+      template_path = File.join(Bonfire.source_root, 'templates', filename)
+      Tilt.new(template_path)
+    end
   end
 
 end
