@@ -1,0 +1,57 @@
+body {
+  font-family: "Arvo", serif;
+  font-size: 18px;
+  background-color: #f4f4f4;
+  line-height: 1.6em;
+  margin: 0 1em;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 1.75em;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+p {
+  text-indent: 1em;
+}
+
+p + p {
+  margin-top: 1em;
+}
+
+pre {
+  margin: -2em 0;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+  border-color: #333333;
+  border-bottom-width: 1px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-style: dotted;
+}
+
+a:link,
+a:hover,
+a:active {
+  color: black
+}
+
+a:visited {
+  color: #999;
+}
+
+/* visited link */
