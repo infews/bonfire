@@ -46,7 +46,7 @@ $ bonfire publish  # make a Kindle ebook
 
 ## Current Features
 
-* build a draft file for editing: all sections in a single HTML file
+* Build a draft file for editing: all sections in a single HTML file
 
 ## Coming Features
 
