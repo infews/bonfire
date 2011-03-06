@@ -3,4 +3,4 @@
 require 'rubygems'
 require 'bonfire'
 
-Bonfire.start
+Bonfire::CLI.start

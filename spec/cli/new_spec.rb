@@ -60,7 +60,7 @@ describe "A command of 'bonfire new'" do
       Dir.chdir @tmp_dir do
         @book_name = "my_book"
         capture_output do
-          @thor.invoke(Bonfire, "new", @book_name)
+          @thor.invoke(Bonfire::CLI, "new", @book_name)
         end
       end
     end
@@ -73,7 +73,7 @@ describe "A command of 'bonfire new'" do
       Dir.chdir @tmp_dir do
         @book_name = "bonfire_book"
         capture_output do
-          @thor.invoke Bonfire, "new"
+          @thor.invoke Bonfire::CLI, "new"
         end
       end
     end

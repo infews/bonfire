@@ -9,12 +9,12 @@ describe "A call to 'bonfire draft'" do
 
     capture_output do
       Dir.chdir @tmp_dir do
-        @thor.invoke Bonfire, "new", "my_book"
+        @thor.invoke Bonfire::CLI, "new", "my_book"
       end
 
       Dir.chdir @book_dir do
-        system "cp #{Bonfire.source_root}/spec/fixtures/sections/*.md #{@book_dir}/source/sections"
-        system "cp #{Bonfire.source_root}/spec/fixtures/css/* #{@book_dir}/source/css"
+        system "cp #{Bonfire::CLI.source_root}/spec/fixtures/sections/*.md #{@book_dir}/source/sections"
+        system "cp #{Bonfire::CLI.source_root}/spec/fixtures/css/* #{@book_dir}/source/css"
       end
     end
   end
@@ -49,9 +49,9 @@ describe "A call to 'bonfire draft'" do
     before :each do
       capture_output do
         Dir.chdir @book_dir do
-          system "cp #{Bonfire.source_root}/spec/fixtures/bonfire_no_sections.yml #{@book_dir}/bonfire.yml"
+          system "cp #{Bonfire::CLI.source_root}/spec/fixtures/bonfire_no_sections.yml #{@book_dir}/bonfire.yml"
 
-          @thor.invoke Bonfire, 'draft'
+          @thor.invoke Bonfire::CLI, 'draft'
         end
       end
     end
@@ -92,9 +92,9 @@ describe "A call to 'bonfire draft'" do
     before :each do
       capture_output do
         Dir.chdir @book_dir do
-          system "cp #{Bonfire.source_root}/spec/fixtures/bonfire_with_sections_with_md.yml #{@book_dir}/bonfire.yml"
+          system "cp #{Bonfire::CLI.source_root}/spec/fixtures/bonfire_with_sections_with_md.yml #{@book_dir}/bonfire.yml"
 
-          @thor.invoke Bonfire, 'draft'
+          @thor.invoke Bonfire::CLI, 'draft'
         end
       end
     end
@@ -134,9 +134,9 @@ describe "A call to 'bonfire draft'" do
     before :each do
       capture_output do
         Dir.chdir @book_dir do
-          system "cp #{Bonfire.source_root}/spec/fixtures/bonfire_with_sections_no_md.yml #{@book_dir}/bonfire.yml"
+          system "cp #{Bonfire::CLI.source_root}/spec/fixtures/bonfire_with_sections_no_md.yml #{@book_dir}/bonfire.yml"
 
-          @thor.invoke Bonfire, 'draft'
+          @thor.invoke Bonfire::CLI, 'draft'
         end
       end
     end
