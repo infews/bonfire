@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Davis W. Frank"]
   s.email       = ["dwfrank+bonfire@infe.ws"]
-  s.homepage    = "http://rubygems.org/gems/bonfire"
+  s.homepage    = "http://infews.github.com/bonfire"
   s.summary     = %q{Ruby for eBooks}
   s.description = %q{All the scripts you need to write books in Markdown then publish them via Amazon's Kindle
 Digital Publishing.}

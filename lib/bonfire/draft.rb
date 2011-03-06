@@ -1,3 +1,4 @@
+require 'thor'
 require 'rubygems'
 require 'tilt'
 require 'rdiscount'
@@ -15,8 +16,13 @@ class Bonfire < Thor
       directory File.join(Dir.pwd, 'source/images'), 'output/draft/images'
 
       book_name = bonfire['book_name']
+
+      bonfire['sections'] = bonfire['sections'] || Dir.chdir(File.join(Dir.pwd, 'source',
+                                                              'sections')) { Dir.glob('*') }.compact
+
+      pp bonfire
       sections  = bonfire['sections'].collect do |section|
-        section = "#{section}.md" #unless section.match(/\.md$/)
+        section = "#{section}.md" unless section.match(/\.md$/)
         Tilt.new("source/sections/#{section}").render
       end
       css_files = Dir.chdir(File.join(Dir.pwd, 'source')) { Dir.glob('css/**/*.css') }
