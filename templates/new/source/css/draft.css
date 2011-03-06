@@ -1,0 +1,22 @@
+/*
+  Bonfire Draft File CSS
+
+  This file is only included when the single-HTML-file Draft is created. Feel free to change this as needed to make
+  your draft more readable when printed.
+
+*/
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+
+h1, h2, h3, h4, h5 {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+
+p {
+  text-indent: 1em;
+  margin-top: 1em;
+}
