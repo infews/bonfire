@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bonfire (0.0.1)
+    bonfire (0.1.0)
       haml (>= 3.0)
       rdiscount (>= 1.6.8)
       thor (>= 0.14.0)
@@ -15,6 +15,7 @@ GEM
       rspec (~> 2.0)
       rspec-instafail (~> 0.1.4)
       ruby-progressbar (~> 0.0.9)
+    gem-release (0.0.16)
     haml (3.0.25)
     nokogiri (1.4.4)
     rdiscount (1.6.8)
@@ -37,6 +38,7 @@ PLATFORMS
 DEPENDENCIES
   bonfire!
   fuubar
+  gem-release
   haml (>= 3.0)
   nokogiri
   rdiscount (>= 1.6.8)

@@ -28,4 +28,5 @@ Digital Publishing.}
   s.add_development_dependency "rspec", ">= 2.5.0"
   s.add_development_dependency "fuubar"
   s.add_development_dependency "nokogiri"
+  s.add_development_dependency "gem-release"
 end
