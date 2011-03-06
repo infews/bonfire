@@ -36,12 +36,12 @@ pre {
 a {
   text-decoration: none;
   background-color: transparent;
-  border-color: #333333;
+  border-color: black;
   border-bottom-width: 1px;
   border-left-width: 0px;
   border-right-width: 0px;
   border-top-width: 0px;
-  border-style: dotted;
+  border-style: solid;
 }
 
 a:link,
@@ -51,5 +51,5 @@ a:active {
 }
 
 a:visited {
-  color: #999;
+  color: #808080;
 }

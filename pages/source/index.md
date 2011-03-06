@@ -17,17 +17,13 @@ will in `bonfire.yml`.
 At any time you can make a single-file draft html version of your book for offline editing, sharing with others,
 and even marking up with a red pen (just like your High School English teacher).
 
-Writing is the hard part. Publishing, which means putting all the data together in a set of ebook-happy HTML and XML
-files, is the annoying part. Which is why we have Ruby and it's amazing tools for manipulating your masterwork and
-compiling it into a format that works with the various ebook tools.
+Writing is the hard part. 
 
-## Publishing
+## Publish to a Directory
 
-This project assumes you're going to publish to [Amazon's Kindle Direct Publishing platform](http://kdp.amazon.com).
-KDP expects your book to be a directory of HTML files, some minimal CSS, a few images, and a couple of ebook XML files.
-Bonfire helps you with all of these.
+Publishing, which means putting all the data together in a directory of ebook-happy HTML and XML files, is the annoying part. Bonfire takes your Markdown and builds a set of HTML, CSS, image, and XML files that work as input to ebook "compilers".
 
-We'll add ePub in a future release.
+This project assumes you're going to publish to [Amazon's Kindle Direct Publishing platform](http://kdp.amazon.com). We'll add ePub in a future release.
 
 ## Using Bonfire
 
