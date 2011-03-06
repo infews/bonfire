@@ -4,7 +4,7 @@
 You're a Rubyist. You want to write a book. You want to write an _ebook_. You might have Apple Pages. Adobe
 InDesign? Unlikely. Microsoft Word? Not on your life.
 
-When it comes to text, you think in [Markdown](http://daringfireball.net/projects/markdown/) and HTML. You're not afraid of the command line and editing a littleCSS. But you need tools in order to publish a book. What do you do?
+When it comes to text, you think in [Markdown](http://daringfireball.net/projects/markdown/), CSS and HTML. You're not afraid of the command line. But you need tools in order to publish a book. What do you do?
 
 You light a Bonfire.
 
