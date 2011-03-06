@@ -4,18 +4,15 @@
 You're a Rubyist. You want to write a book. You want to write an _ebook_. You might have Apple Pages. Adobe
 InDesign? Unlikely. Microsoft Word? Not on your life.
 
-When it comes to text, you think in Markdown and HTML. You're not afraid of the command line and editing a little
-CSS. But you need tools in order to publish a book. What do you do?
+When it comes to text, you think in [Markdown](http://daringfireball.net/projects/markdown/) and HTML. You're not afraid of the command line and editing a littleCSS. But you need tools in order to publish a book. What do you do?
 
 You light a Bonfire.
 
 ## Write in Markdown
 
-With Bonfire your book's sections are Markdown files. You can name these files however you like and reorder them at
-will in `bonfire.yml`.
+With Bonfire your book's sections are Markdown files. You can name these files however you like and reorder them atwill in `bonfire.yml`.
 
-At any time you can make a single-file draft html version of your book for offline editing, sharing with others,
-and even marking up with a red pen (just like your High School English teacher).
+At any time you can make a single-file draft html version of your book for offline editing, sharing with others, and even marking up with a red pen (just like your High School English teacher).
 
 Writing is the hard part. 
 
@@ -23,7 +20,7 @@ Writing is the hard part.
 
 Publishing, which means putting all the data together in a directory of ebook-happy HTML and XML files, is the annoying part. Bonfire takes your Markdown and builds a set of HTML, CSS, image, and XML files that work as input to ebook "compilers".
 
-This project assumes you're going to publish to [Amazon's Kindle Direct Publishing platform](http://kdp.amazon.com). We'll add ePub in a future release.
+Once we have this directory - which looks a whole lot like a website - we can make an ebook. This same set of files should publishable to [Amazon's Kindle Direct Publishing platform](http://kdp.amazon.com) or to any of the ePub systems (iBooks, B&N Nook)
 
 ## Using Bonfire
 
@@ -32,9 +29,9 @@ This project assumes you're going to publish to [Amazon's Kindle Direct Publishi
 $ gem install bonfire  
 $ bonfire new my_book  
 $ cd my_book  
-$ mate .  
+$ mate . # or pick another editor
 </code></pre>
-Now get writing.
+Now get writing. Did we mention that's the hard part?
 
 ### Other Commands
 <pre><code>
@@ -48,9 +45,9 @@ $ bonfire publish  # make a Kindle ebook
 
 * Build a draft file for editing: all sections in a single HTML file
 
-## Coming Features
+## Upcoming Features
 
-The full public backlog lives on Pivotal Tracker, but here are the highlights:
+The [full public backlog](https://www.pivotaltracker.com/projects/244657) lives on [Pivotal Tracker](http://www.pivotaltracker.com), but here are the highlights:
 
 * Build a released version of the book - each section in its own file, external CSS
 * Auto-generate a Table of Cotents file (HTML version)
@@ -61,9 +58,7 @@ The full public backlog lives on Pivotal Tracker, but here are the highlights:
 
 ## Contributor's Guide
 
-All pull requests will be considered. But like all projects, we're opinionated. We welcome your contributions
-that are thoughtful and include specs. Pull requests without specs will be glossed over as they are clearly not
-thoughtful enough.
+All pull requests will be considered. But like all projects, we're opinionated. We welcome your contributions that are thoughtful and include specs.
 
 If there's interest, we'll make an email list. In the meantime, Github Issues and direct emails are fine.
 
