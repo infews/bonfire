@@ -5,7 +5,7 @@ You're a Rubyist. You want to write a book. You want to write an _ebook_. You mi
 InDesign? Unlikely. Microsoft Word? Not on your life.
 
 When it comes to text, you think in Markdown and HTML. You're not afraid of the command line and editing a little
-CSS. But how do you channel all this into an ebook?
+CSS. But you need tools in order to publish a book. What do you do?
 
 You light a Bonfire.
 

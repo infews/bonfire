@@ -1,0 +1,7 @@
+!!!
+%html
+  %head
+    %title= title
+    - css_files.each do |css|
+      %link{:type => 'text/css', :rel => 'stylesheet', :href => css }
+  %body= body
