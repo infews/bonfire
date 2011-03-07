@@ -33,7 +33,7 @@ describe "A call to 'bonfire draft'" do
     end
 
     it "should copy the css directory" do
-      File.exist?("#{@book_dir}/#{}output/draft/css").should be_true
+      File.exist?("#{@book_dir}/output/draft/css").should be_true
     end
 
     it "should copy the css directory contents" do
@@ -41,7 +41,7 @@ describe "A call to 'bonfire draft'" do
     end
 
     it "should build a single HTML file" do
-      File.exist?("#{@book_dir}/#{}output/draft/my_book_draft.html").should be_true
+      File.exist?("#{@book_dir}/output/draft/my_book_draft.html").should be_true
     end
   end
 

@@ -12,7 +12,7 @@ module Bonfire
     end
 
     def self.template_dir
-      @@template_dir
+      @@template_dir = File.join(Bonfire::CLI.source_root, 'templates')
     end
 
   end
